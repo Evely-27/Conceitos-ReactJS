@@ -20,12 +20,13 @@ Este repósitorio é para o desenvolvimento das práticas de códificação do C
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [Typescript](https://www.typescriptlang.org/docs/)
 
-## Comandos usados no curso:
 ### Criar projeto ReactJS com Typescript
 
 * Em uma pasta para o projeto, rodar: npx create-react-app nomeprojeto --template typescript
 * No novo arquivo criado, rodar: npm start 
 
+## Comandos usados no curso:
+* npm install react-router-dom = serve para trabalhar navegação entre páginas.
 ## Anotações do desenvolvemnto:
 * As mudanças no package.json para o "devDependencies" foi para dependências de desenvolvimento, no caso, não precisa ir para produção.
 * O uso do "refactor" no git é para "refatoração" já que somente organizamos e limpamos o código.

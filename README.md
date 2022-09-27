@@ -27,6 +27,7 @@ Este repósitorio é para o desenvolvimento das práticas de códificação do C
 
 ## Comandos usados no curso:
 * npm install react-router-dom = serve para trabalhar navegação entre páginas.
+* npm instal add -D @types/react-router-dom = instala o types que serve para tipagem
 ## Anotações do desenvolvemnto:
 * As mudanças no package.json para o "devDependencies" foi para dependências de desenvolvimento, no caso, não precisa ir para produção.
 * O uso do "refactor" no git é para "refatoração" já que somente organizamos e limpamos o código.

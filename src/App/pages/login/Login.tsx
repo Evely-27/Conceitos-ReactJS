@@ -1,20 +1,37 @@
-// import { useHistory } from "react-router-dom";
-import { useNavigate} from "react-router-dom"
-
+import { useState } from "react"
 
 export const Login = () => {
-    // const history = useHistory();
-    // const handleClick = () => {
-    //     history.push('/home');
-    // }
-    const navi = useNavigate();
-    const handleClick = () => { navi("home")}
+// useState = serve para pegar valores digitados, recebe um valor inicial de string vazia
+// [] = diz que é um array.
+// setAlgo = serve para manipular o valor para ser reenderizado
+    const [email,setEmail] = useState('');
+    const [senha,setSenha] = useState('');
+
+    const handleEntrar = () =>  {
+        console.log(email, senha);
+
+    }
 
     return (
         <div>
-            <p>Login</p>
+            <form>
+                <label>
+                    <span>EMAIL:</span>
+{/* atribuimos o email para o campo certo, e usamos onChange para pegar o que estar sendo digitado, vindo como um "evento",
+e atribuimos ele ao setEmail, e com o target é o input */}
+                    <input type="text" value={email} onChange={e => setEmail(e.target.value)} />
+                </label>
 
-            <button onClick={handleClick}>Ir para Home</button>
+                <label>
+                    <span>SENHA:</span>
+                    <input type="password" value={senha } onChange={e => setSenha(e.target.value)} />
+                </label>
+{/* botão estya nesse tipo para não subimeter o form. */}
+                <button type="button" onClick={handleEntrar}>
+                    ENTRAR
+                </button>
+
+            </form>
         </div>
     )
 }

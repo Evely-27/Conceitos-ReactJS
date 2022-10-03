@@ -1,27 +1,26 @@
-import { useEffect, useMemo, useState } from "react"
+import { useCallback, useMemo, useState } from "react"
 
 export const Login = () => {
 
     const [email,setEmail] = useState('');
     const [senha,setSenha] = useState('');
 
-// usando o effect com dependencia, serve para só ser executado quando houver alterações nelas
-// useEffect(() => {
-//     console.log(email,senha);
-// }, [email,senha]);
 
 
 // ao usar o useMemo = armazenar o calculo na memoria, parecido com o effect,
 // ao mudar o valor de email é que ele vai calcular o novo valor, necessita de dependecia para saber o que mudar.
 // permite calculos sem alterar todos os useState, só o que ele quer.
     const emailLength = useMemo(() => {
-        console.log("Executou!!")
+        // console.log("Executou!!")
         return email.length * 200;
     }, [email.length]);
 
-    const handleEntrar = () =>  {
+
+// useCallback = ele memoriza funções na memoria. Se não houver o array de dependeica não altera a função
+
+    const handleEntrar = useCallback(() =>  {
         console.log(email, senha);
-    }
+    },[email, senha]);
 
     return (
         <div>

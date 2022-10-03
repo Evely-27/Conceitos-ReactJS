@@ -1,33 +1,23 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 export const Login = () => {
-// 
-// 
-// 
+
     const [email,setEmail] = useState('');
     const [senha,setSenha] = useState('');
 
-//useEffect: serve para que um bloco não seja renderizado toda vez, pode ser usado quanto quiser
-// o [] seria para as dependencias
-// só renderiza uma vez, bom exemplo chamar APIs
-    useEffect(() => {
-        if (window.confirm('Você é mulher?')) {
-            console.log('Mulher')
-        }else 
-        {
-            console.log('Homem')
-        }
-
-    }, []);
-
 // usando o effect com dependencia, serve para só ser executado quando houver alterações nelas
-useEffect(() => {
-    console.log(email);
-}, [email]);
+// useEffect(() => {
+//     console.log(email,senha);
+// }, [email,senha]);
 
-useEffect(() => {
-    console.log(senha);
-}, [senha]);
+
+// ao usar o useMemo = armazenar o calculo na memoria, parecido com o effect,
+// ao mudar o valor de email é que ele vai calcular o novo valor, necessita de dependecia para saber o que mudar.
+// permite calculos sem alterar todos os useState, só o que ele quer.
+    const emailLength = useMemo(() => {
+        console.log("Executou!!")
+        return email.length * 200;
+    }, [email.length]);
 
     const handleEntrar = () =>  {
         console.log(email, senha);
@@ -35,6 +25,7 @@ useEffect(() => {
 
     return (
         <div>
+            <p>Quantidade de caracteres dentro de email: {emailLength}</p>
             <form>
                 <label>
                     <span>EMAIL:</span>

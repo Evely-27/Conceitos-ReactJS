@@ -1,10 +1,14 @@
-import { useCallback, useMemo, useRef, useState } from "react"
+import { useCallback, useMemo, useRef, useState } from "react";
+
+
+import { InputLogin } from "./components/inputLoging";
 
 export const Login = () => {
 // useRef  = guarda algum valor que pode ser alterado sem precisar cirar um novo render, até que  mudemos ele.
 // pega a referencia de um elemento html
 // devemos passar a variavel para o elemento que queremos resgatar de referencia
-const inputPasswordRef = useRef<HTMLInputElement>(null);
+
+// const inputPasswordRef = useRef<HTMLInputElement>(null);
 
 
     const [email,setEmail] = useState('');
@@ -23,23 +27,20 @@ const inputPasswordRef = useRef<HTMLInputElement>(null);
         <div>
             <p>Quantidade de caracteres dentro de email: {emailLength}</p>
             <form>
-                <label>
-                    <span>EMAIL:</span>
+                <InputLogin
+                label="Email"
+                value={email}
+                onChange={newValue => setEmail(newValue)}
+                // onPressEnter= {() => inputPasswordRef.current?.focus()}
+                />
 
-                    <input type="text" 
-                    value={email} 
-                    onChange={e => setEmail(e.target.value)}
-                    onKeyDown={e => e.key === 'Enter' ? inputPasswordRef.current?.focus() : undefined}
-                    />
-                </label>
+                <InputLogin
+                label="Senha"
+                type="password"
+                value={senha}
+                onChange={newValue => setSenha(newValue)}
+                />
 
-                <label>
-                    <span>SENHA:</span>
-                    <input type="password" 
-                    value={senha } 
-                    ref= {inputPasswordRef}
-                    onChange={e => setSenha(e.target.value)} />
-                </label>
 
                 <button type="button" onClick={handleEntrar}>
                     ENTRAR

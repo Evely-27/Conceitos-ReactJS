@@ -2,6 +2,8 @@
 // para tizer que é uma variavel opcional, por um ? no fim do nome.
 // podemos passar funções para o component tb
 
+import React from "react";
+
 // interface de tipagem de um componente
 interface IInputLogingProps {
     label: string;
@@ -11,13 +13,15 @@ interface IInputLogingProps {
     onChange: (newValue:string) => void;
     onPressEnter?: () => void;
 }
-
-export const InputLogin:React.FC<IInputLogingProps> = (props) => {
+// utilizamos o React.forwardRef para poder usar o ref em componentes, normalmemnte não muito usado.
+export const InputLogin = React.forwardRef<HTMLInputElement,IInputLogingProps>((props,ref) => {
     return (
         <label>
         <span>{props.label}</span>
 
-        <input type={props.type} 
+        <input 
+        ref={ref}
+        type={props.type}
         value={props.value} 
         onChange={e => props.onChange(e.target.value)}
         onKeyDown={e => e.key === 'Enter' 
@@ -26,4 +30,4 @@ export const InputLogin:React.FC<IInputLogingProps> = (props) => {
         />
     </label>
     );
-}
+});

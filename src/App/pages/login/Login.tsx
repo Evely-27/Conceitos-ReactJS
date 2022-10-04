@@ -8,7 +8,7 @@ export const Login = () => {
 // pega a referencia de um elemento html
 // devemos passar a variavel para o elemento que queremos resgatar de referencia
 
-// const inputPasswordRef = useRef<HTMLInputElement>(null);
+const inputPasswordRef = useRef<HTMLInputElement>(null);
 
 
     const [email,setEmail] = useState('');
@@ -31,13 +31,14 @@ export const Login = () => {
                 label="Email"
                 value={email}
                 onChange={newValue => setEmail(newValue)}
-                // onPressEnter= {() => inputPasswordRef.current?.focus()}
+                onPressEnter= {() => inputPasswordRef.current?.focus()}
                 />
 
                 <InputLogin
                 label="Senha"
                 type="password"
                 value={senha}
+                ref= {inputPasswordRef}
                 onChange={newValue => setSenha(newValue)}
                 />
 
